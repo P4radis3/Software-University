@@ -1,0 +1,5 @@
+function journey(input){
+
+
+    
+}
