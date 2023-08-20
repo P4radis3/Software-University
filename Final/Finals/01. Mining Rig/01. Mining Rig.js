@@ -1,13 +1,13 @@
 function one(input){
 
-    let cardAmount = Number(input[0]);
-    let prehodnikAmount = Number(input[1]);
+    let GPUAmount = Number(input[0]);
+    let adaptorAmount = Number(input[1]);
 
-    let cardPrice = cardAmount * 13;
-    let prehodnikPrice = prehodnikAmount * 13;
+    let GPUPrice = GPUAmount * 13;
+    let adaptorPrice = adaptorAmount * 13;
     let secondHand = 1000;
 
-    let totalSum = cardPrice + prehodnikPrice + secondHand;
+    let totalSum = GPUPrice + adaptorPrice + secondHand;
 
     let commisionForDay = Number(input[2])
     let sumForDay = Number(input[3]);
