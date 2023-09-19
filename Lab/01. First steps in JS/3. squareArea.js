@@ -5,5 +5,3 @@ function squareArea(input) {
     console.log(area);
 
 }
-
-squareArea();

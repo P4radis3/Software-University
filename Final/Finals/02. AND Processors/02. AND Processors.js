@@ -1,9 +1,8 @@
 function two(input){
 
-    let CPU = Number(input[0]); // един процесор се изработва за 3 часа
+    let CPU = Number(input[0]); 
     let workers = Number(input[1]);
-    let days = Number(input[2]); // един служител работи 8 часа на ден
-
+    let days = Number(input[2]);
     let workingHours = workers * days * 8;
 
     let howManyCPU = Math.floor(workingHours / 3);

@@ -11,5 +11,3 @@ function petShop(input) {
     console.log(`${sum} lv.`)
 
 }
-
-petShop();

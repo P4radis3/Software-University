@@ -12,5 +12,3 @@ function greening(input) {
     console.log(`The final price is: ${totalDiscount} lv.`)
     console.log(`The discount is: ${calculatedSquareMeterPrice} lv.`)
 }
-
-greening()

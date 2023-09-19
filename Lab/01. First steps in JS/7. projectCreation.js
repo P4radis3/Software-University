@@ -6,5 +6,3 @@ function projectCreation(input) {
     console.log(`The architect ${namearchitect} will need ${hours} hours to complete ${projects} projects.`)
 
 }
-
-projectCreation();
