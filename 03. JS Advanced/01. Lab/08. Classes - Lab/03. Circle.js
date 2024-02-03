@@ -43,8 +43,3 @@ class Circle {
 
     }
 }
-
-let c = new Circle(2);
-console.log(`Radius: ${c.radius}`); // Radius: 2
-console.log(`Diameter: ${c.diameter}`); // Diameter: 4
-console.log(`Area: ${c.area}`); // Area: ~12.57
