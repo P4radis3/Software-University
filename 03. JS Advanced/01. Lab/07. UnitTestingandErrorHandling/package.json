@@ -1,15 +1,14 @@
 {
   "name": "07.-unittestinganderrorhandling",
   "version": "1.0.0",
-  "description": "",
+  "description": "Mocha and Chai, Unit Testing and Error Handling @ Softuni, Lab and Exercise",
   "main": "index.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "chai": "^5.0.3",
     "mocha": "^10.2.0"
