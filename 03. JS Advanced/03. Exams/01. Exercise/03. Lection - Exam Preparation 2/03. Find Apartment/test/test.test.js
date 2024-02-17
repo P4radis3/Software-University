@@ -1,4 +1,4 @@
-import { assert } from "chai"
+import { assert } from "chai";
 import { findNewApartment } from "../findApartment.js";
 
 describe("isGoodLocation", () => {
