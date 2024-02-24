@@ -1,14 +1,14 @@
 function loadGitHubRepository() {
 
-   let xhr = new XMLHttpRequest();
-   xhr.onreadystatechange = function () {
-
-      if (xhr.readyState === 4 && xhr.status === 200) {
-         document.getElementById("res").textContent = xhr.responseText;
+   const url = 'https://api.github.com/users/testnakov/repos';
+   const httpRequest = new XMLHttpRequest();
+   httpRequest.addEventListener('readystatechange', () => {
+      if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+         document.getElementById('res').textContent = httpRequest.responseText;
       }
-   };
+   });
 
-   xhr.open("GET", "https://api.github.com/users/testnakov/repos", true);
-   xhr.send();
+   httpRequest.open('GET', url);
+   httpRequest.send();
 
 }
