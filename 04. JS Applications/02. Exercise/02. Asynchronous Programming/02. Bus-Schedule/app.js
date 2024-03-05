@@ -1,25 +1,41 @@
 function solve() {
+  const infoBox = document.querySelector("#info .info");
+  const departBtn = document.getElementById("depart");
+  const arriveBtn = document.getElementById("arrive");
 
-    const infoSpan = document.querySelector('#info span');
-    const url = "http://localhost:3030/jsonstore/bus/schedule/"
+  let busStopId = "depot";
+  let currentStopName;
 
-    async function depart() {
+  async function depart() {
+    const url = `http://localhost:3030/jsonstore/bus/schedule/${busStopId}`;
 
-        const response = await fetch(url + 'depot');
-        const data = await response.json();
+    try {
+      const response = await fetch(url);
+      const { name, next } = await response.json();
+      currentStopName = name;
 
-        infoSpan.textContent = data.name;
+      infoBox.textContent = `Next stop ${name}`;
+      busStopId = next;
 
+      departBtn.disabled = true;
+      arriveBtn.disabled = false;
+    } catch (err) {
+      departBtn.disabled = true;
+      arriveBtn.disabled = true;
     }
+  }
 
-    function arrive() {
-        console.log('Arrive TODO...');
-    }
+  function arrive() {
+    infoBox.textContent = `Arriving at ${currentStopName}`;
 
-    return {
-        depart,
-        arrive
-    };
+    departBtn.disabled = false;
+    arriveBtn.disabled = true;
+  }
+
+  return {
+    depart,
+    arrive,
+  };
 }
 
 let result = solve();
