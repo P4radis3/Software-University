@@ -37,7 +37,7 @@ export async function detailsPage(context) {
         }
     }
 
-    context.render(detailsPage(car, onDelete));
+    context.render(detailsTemplate(car, onDelete));
     async function onDelete() {
         const choice = confirm('Are you sure?');
         if (choice) {

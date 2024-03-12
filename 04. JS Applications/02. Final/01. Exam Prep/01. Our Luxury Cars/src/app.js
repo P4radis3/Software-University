@@ -27,23 +27,16 @@ page('/create', createPage);
 page('/search', searchPage);
 
 function decorateContent(context, next) {
-
     context.render = renderView;
     next();
-
 }
 
 function renderView(content) {
-
     const userData = getUserData();
     render(layoutTemplate(userData, content), root);
-
 }
 
 function logoutFunction(context) {
-
     logout();
     context.page.redirect = ('/');
-
 }
-
