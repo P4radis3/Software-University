@@ -8,7 +8,11 @@ const searchTemplate = (onSearch, foundCars) => html`
     <div class="form">
     <h4>Search</h4>
     <form class="search-form">
-        <input type="text" name="search" id="search-input" />
+        <input 
+        type="text"
+        name="search"
+        id="search-input" 
+        />
         <button @click=${onSearch} class="button-list">Search</button>
     </form>
 </div>
