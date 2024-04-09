@@ -1,6 +1,6 @@
 import { html } from "../../node_modules/lit-html/lit-html.js";
 
-const homeTemplate = html`
+const homeTamplate = html`
          <section id="hero">
           <h1>Welcome to Elden Ring Explorer, your gateway
              to the mystical world of Elden Ring! Embark
@@ -10,9 +10,9 @@ const homeTemplate = html`
                  guide you through the wonders and challenges
                   that await in this extraordinary game world</h1>
                   <img id="hero-img" src="./images/hero.png" alt="hero">
-                  </section>
+
 `;
 
 export async function homePage(ctx) {
-  ctx.render(homeTemplate);
+  ctx.render(homeTamplate);
 }

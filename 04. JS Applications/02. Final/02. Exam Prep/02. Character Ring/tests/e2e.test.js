@@ -477,24 +477,17 @@ describe("E2E tests", function () {
     });
 
     describe("Dashboard Page [ 15 Points ]", function () {
-
         it("Show Characters page - welcome message [ 2.5 Points ]", async function () {
+            const { get } = await handle(endpoints.catalog);
+
             await page.goto(host);
-        
-            const charactersBtn = await page.waitForSelector('nav >> text=Characters', { timeout: interval });
 
-            if (charactersBtn) {
+            let charactersBtn = await page.waitForSelector('nav >> text=Characters', { timeout: interval });
+            await charactersBtn.click();
 
-                await charactersBtn.click();
-                
-                await page.waitForSelector('text=Characters', { timeout: interval });
-                const isCharactersTextVisible = await page.isVisible('text=Characters');
-                expect(isCharactersTextVisible).to.be.true;
-            } else {
-                throw new Error('Unable to find the "Characters" link on the page.');
-            }
+            await page.waitForSelector('main >> text=Characters', { timeout: interval });
+            expect(await page.isVisible("main >> text=Characters")).to.be.true;
         });
-        
 
         it("Check Characters page with 0 Characters [ 2.5 Points ]", async function () {
             const { get } = await handle(endpoints.catalog);

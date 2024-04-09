@@ -7,17 +7,15 @@ const createTemplate = (onCreate) => html`
         <div class="form form-auto">
         <h2>Share Your Car</h2>
         <form class="create-form" @submit=${onCreate}>
-            <input type="text"
-            name="model"
-            id="model"
-            placeholder="Model"
-            />
-            <input type="text"
+            <input type="text" name="model" id="model" placeholder="Model"/>
+            <input
+            type="text"
             name="imageUrl"
             id="car-image"
             placeholder="Your Car Image URL"
             />
-            <input type="text"
+            <input
+            type="text"
             name="price"
             id="price"
             placeholder="Price in Euro"
@@ -34,28 +32,52 @@ const createTemplate = (onCreate) => html`
             id="speed"
             placeholder="Top Speed in Kmh"
             />
-            <textarea id="about" name="about" placeholder="More About The Car" rows="10" cols="50"></textarea>
+            <textarea
+            id="about"
+            name="about"
+            placeholder="More About The Car"
+            rows="10"
+            cols="50"
+            ></textarea>
             <button type="submit">Add</button>
         </form>
         </div>
     </section>
 `;
 
-export function createPage(context) {
+export function createPage(ctx) {
 
-    context.render(createTemplate(createSubmitHandler(onCreate)));
+    ctx.render(createTemplate(createSubmitHandler(onCreate)));
+
     async function onCreate({
-        model, imageUrl, price, weight, speed, about
+        model,
+        imageUrl, 
+        price, 
+        weight,
+        speed,
+        about
     }) {
-        if ([
-            model, imageUrl, price, weight, speed, about].some((element) => element == '')) {
+        if([
+            model,
+            imageUrl, 
+            price, 
+            weight,
+            speed,
+            about
+        ].some((el) => el == '')
+        ) {
             return alert('All fields are required');
         }
 
         const result = await createCar({
-            model, imageUrl, price, weight, speed, about
+            model,
+            imageUrl, 
+            price, 
+            weight,
+            speed,
+            about
         });
 
-        context.page.redirect('/catalog');
+        ctx.page.redirect('/catalog');
     }
 }

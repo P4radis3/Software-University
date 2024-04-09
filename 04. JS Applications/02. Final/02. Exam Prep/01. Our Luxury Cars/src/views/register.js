@@ -2,18 +2,20 @@ import { html } from '../../node_modules/lit-html/lit-html.js';
 import { register } from '../data/auth.js';
 import { createSubmitHandler } from '../utils.js';
 
+
 const registerTemplate = (onRegister) => html`
-<section id="register">
-    <div class="form">
+    <section id="register">
+        <div class="form">
         <h2>Register</h2>
-            <form class="register-form" @submit=${onRegister}>
-            <input type="text"
+        <form class="register-form" @submit=${onRegister}>
+            <input
+            type="text"
             name="email"
             id="register-email"
             placeholder="email"
             />
             <input
-            type="password" 
+            type="password"
             name="password"
             id="register-password"
             placeholder="password"
@@ -26,22 +28,27 @@ const registerTemplate = (onRegister) => html`
             />
             <button type="submit">register</button>
             <p class="message">Already registered? <a href="/login">Login</a></p>
-    </div>
-</section>
+        </form>
+        </div>
+    </section>
 `;
 
-export function registerPage(context) {
-    context.render(registerTemplate(createSubmitHandler(onRegister)));
-    async function onRegister({ email, password }, form) {
-        if (email = "" || password == "") {
-            return alert("All fields are required")
-        } if (password !== repass) {
-            return alert("Passwords don't match");
+export function registerPage(ctx) {
+    ctx.render(registerTemplate(createSubmitHandler(onRegister)));
+
+    async function onRegister({email, password,['re-password']: repass}, form) {
+        
+        if (email == '' || password == '') {
+            return alert('All fields are required'); 
         }
 
+        if (password !== repass) {
+            return alert("Passwords don't match");
+        }
+        
         await register(email, password);
         form.reset();
-        context.page.redirect('/');
-
+        
+        ctx.page.redirect('/');
     }
 }

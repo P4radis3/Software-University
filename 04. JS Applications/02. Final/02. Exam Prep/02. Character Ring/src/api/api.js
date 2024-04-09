@@ -6,14 +6,18 @@ export const settings = {
 
 async function request(url, options) {
     try {
+        // Send request with appropriate methods, headers and body (if any)
         const response = await fetch(url, options);
 
+        // Handle errors
         if (response.ok == false) {
             const error = await response.json();
             throw new Error(error.message);
         }
 
+        // Return result
         try {
+            // Parse response (if needed)
             const data = await response.json();
             return data;
 
@@ -27,6 +31,7 @@ async function request(url, options) {
     }
 }
 
+// Function that creates headers, bases on application state and body
 function createOptions(method = 'get', body) {
     const options = {
         method,
@@ -46,6 +51,7 @@ function createOptions(method = 'get', body) {
     return options;
 }
 
+// Decorator function for all REST methods
 export async function get(url) {
     return await request(url, createOptions());
 }
@@ -62,6 +68,7 @@ export async function del(url) {
     return await request(url, createOptions('delete'));
 }
 
+// Authentication function (login/register/logout)
 export async function login(email, password) {
     const result = await post(settings.host + '/users/login', { email, password });
     setUserData(result);

@@ -1,12 +1,15 @@
-import { clearUserData, getUserData } from "../utils";
-const root = 'http://localhost:3030';
+import { clearUserData, getUserData } from "../utils.js";
+
+const host = 'http://localhost:3030';
+
 async function request(method, url, data) {
     const options = {
         method,
         headers: {}
     }
 
-    const userData = getUserData();
+    const userData = getUserData()
+
     if (userData) {
         const token = userData.accessToken;
         options.headers['X-Authorization'] = token;
@@ -18,26 +21,27 @@ async function request(method, url, data) {
     }
 
     try {
-
         const response = await fetch(host + url, options);
+
         let result;
+
         if (response.status != 204) {
             result = await response.json();
-        }
+        } 
 
         if (response.ok == false) {
             if (response.status == 403) {
                 clearUserData();
             }
-
             const error = result;
             throw error;
-
         }
+
         return result;
-    } catch (error) {
-        alert(error.message);
-        throw error;
+
+    } catch (err) {
+        alert(err.message);
+        throw err;
     }
 }
 

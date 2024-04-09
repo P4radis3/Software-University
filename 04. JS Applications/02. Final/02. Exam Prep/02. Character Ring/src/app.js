@@ -4,7 +4,6 @@ import page from "../node_modules/page/page.mjs";
 import { logout as apiLogout } from "./api/api.js";
 import { getUserData } from "./utility.js";
 import { loginPage, registerPage } from "./view/auth.js";
-
 import { homePage } from "./view/home.js";
 import { dashboardPage } from "./view/dashboard.js";
 import { detailsPage } from "./view/details.js";

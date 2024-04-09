@@ -14,29 +14,33 @@ import { searchPage } from './views/search.js';
 
 const root = document.getElementById('wrapper');
 
-page(decorateContent);
+page(decorateContext);
 page('/index.html', '/');
 page('/', homePage);
 page('/login', loginPage);
 page('/register', registerPage);
-page('/logout', logoutFunction);
+page('/logout', logoutAction);
 page('/catalog', catalogPage);
 page('/catalog/:id', detailsPage);
 page('/catalog/:id/edit', editPage);
 page('/create', createPage);
 page('/search', searchPage);
 
-function decorateContent(context, next) {
-    context.render = renderView;
+page.start();
+
+function decorateContext(ctx, next) {
+    ctx.render = renderView;
+
     next();
 }
 
+// TODO inject dependencies
 function renderView(content) {
     const userData = getUserData();
     render(layoutTemplate(userData, content), root);
 }
 
-function logoutFunction(context) {
+function logoutAction(ctx) {
     logout();
-    context.page.redirect = ('/');
+    ctx.page.redirect('/');
 }

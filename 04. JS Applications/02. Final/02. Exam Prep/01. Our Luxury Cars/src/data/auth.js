@@ -1,14 +1,13 @@
-import { clearUserData, setUserData } from "../utils";
-import { get, post } from "./api";
+import { clearUserData, setUserData } from "../utils.js";
+import { get, post } from "./api.js";
 
 const endpoints = {
-
     login: '/users/login',
     register: '/users/register',
     logout: '/users/logout',
-
 }
 
+// TODO Change user object according to project requirements
 
 export async function login(email, password) {
     const result = await post(endpoints.login, { email, password });
