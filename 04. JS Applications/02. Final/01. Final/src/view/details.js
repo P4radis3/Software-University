@@ -27,33 +27,32 @@ const detailsTemplate = (product, isOwner, onDelete, isLoggedIn, totalLikesCount
 
 export async function detailsPage(context) {
 
-  const characterId = context.params.id;
-  const fact = await getSolutionById(characterId);
-  const user = context.user;
+    const characterId = context.params.id;
+    const fact = await getSolutionById(characterId);
+    const user = context.user;
 
-  let userId;
-  let totalLikesCount;
-  let getUserLikesCounted;
-  if (user != null) { userId = user._id; getUserLikesCounted = await getUserLikesCount(characterId, userId); }
+    let userId;
+    let totalLikesCount;
+    let getUserLikesCounted;
+    if (user != null) { userId = user._id; getUserLikesCounted = await getUserLikesCount(characterId, userId); }
 
-  const isOwner = user && fact._ownerId == user._id;
-  const isLoggedIn = user !== undefined;
-  totalLikesCount = await getTotalLikesCount(characterId);
-  context.render(detailsTemplate(fact, isOwner, onDelete, isLoggedIn, totalLikesCount, onClickLike, getUserLikesCounted));
-
-  async function onClickLike() {
-
-    const likes = { characterId: characterId };
-    await like(likes);
-
+    const isOwner = user && fact._ownerId == user._id;
+    const isLoggedIn = user !== undefined;
     totalLikesCount = await getTotalLikesCount(characterId);
-    getUserLikesCounted = await getUserLikesCount(characterId, userId);
     context.render(detailsTemplate(fact, isOwner, onDelete, isLoggedIn, totalLikesCount, onClickLike, getUserLikesCounted));
 
-  }
+    async function onClickLike() {
+        await like(characterId);
 
-  async function onDelete() {
-    const confirmed = confirm("Are you sure?");
-    if (confirmed) { await deleteSolution(characterId); context.page.redirect("/dashboard"); }
-  }
+        totalLikesCount = await getTotalLikesCount(characterId);
+        getUserLikesCounted = await getUserLikesCount(characterId, userId);
+
+        context.render(detailsTemplate(fact, isOwner, onDelete, isLoggedIn, totalLikesCount, onClickLike, getUserLikesCounted));
+
+    }
+
+    async function onDelete() {
+        const confirmed = confirm("Are you sure?");
+        if (confirmed) { await deleteSolution(characterId); context.page.redirect("/dashboard"); }
+    }
 }
