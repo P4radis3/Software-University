@@ -1,24 +1,29 @@
-const { Router } = require('express');
+const { isUser } = require('../middlewares/guards');
 const { home, details, search } = require('../controllers/catalog');
 const { about } = require('../controllers/about');
-const { createGet, createPost } = require('../controllers/movie');
-const { createGet: createCastGet, createPost: createCastPost } = require('../controllers/cast')
-const { attachGet, attachPost } = require('../controllers/attach');
+const { movieRouter } = require('../controllers/movie');
+const { createGet: createCastGet, createPost: createCastPost } = require('../controllers/cast');
 const { notFound } = require('../controllers/404');
+const { attachGet, attachPost } = require('../controllers/attach');
+const { userRouter } = require('../controllers/user');
 
-const router = Router();
+function configRoutes(app) {
+    app.get('/', home);
+    app.get('/search', search);
+    app.get('/details/:id', details);
+    
+    app.get('/attach/:id', isUser(), attachGet);
+    app.post('/attach/:id', isUser(), attachPost);
 
-router.get('/', home);
-router.get('/about', about);
-router.get('/details/:id', details);
-router.get('/attach/:id', attachGet);
-router.post('/attach/:id', attachPost);
-router.get('/create/movie', createGet);
-router.post('/create/movie', createPost);
-router.get('/create/cast', createCastGet);
-router.post('/create/cast', createCastPost);
-router.get('/search', search);
+    app.use(movieRouter);
 
-router.get('*', notFound);
+    app.get('/create/cast', isUser(), createCastGet);
+    app.post('/create/cast', isUser(), createCastPost);
+    
+    app.use(userRouter);
+    
+    app.get('/about', about);
+    app.get('*', notFound);
+}
 
-module.exports = { router };
+module.exports = { configRoutes };

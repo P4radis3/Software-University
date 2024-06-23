@@ -1,0 +1,42 @@
+<main>
+    <div class="details-container">
+        <div class="details-container-image">
+            <img src="{{image}}">
+        </div>
+        <div class="details-container-info">
+            <h2>Titel: {{title}}</h2>
+            <h3>Type: {{type}}</h3>
+            <h3>Certificate: {{certificate}}</h3>
+            <h3>Price: €{{price}}</h3>
+            <h3>By: {{courseOwner.email}}</h3>
+
+            {{#if signCount}}
+            <!--If there are followers-->
+            <h4>Signing By: {{signCount}}</h4>
+            {{else}}
+            <!--If there are no followers-->
+            <h4>Nobody has signed in for this course yet</h4>
+            {{/if}}
+        </div>
+        <div class="details-container-content">
+            <p>{{description}}</p>
+        </div>
+        <div class="btn-container">
+            {{#if user}}
+            {{#if isOwner}}
+            <!-- Only for registered user and creator of the blog post-->
+            <a href="/course/{{_id}}/edit">Edit</a>
+            <a href="/course/{{_id}}/delete">Delete</a>
+            <!-- logged in user who has not yet followed the blog-->
+            {{else}}
+            {{#if isSign}}
+            <!-- logged in user who has already followed the blog-->
+            <p class="sign-up">You've already signed up for this course!</p>
+            {{else}}
+            <a href="/course/{{_id}}/sign">Sign up</a>
+            {{/if}}
+            {{/if}}
+            {{/if}}
+        </div>
+    </div>
+</main>

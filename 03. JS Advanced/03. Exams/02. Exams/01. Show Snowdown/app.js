@@ -1,5 +1,4 @@
 window.addEventListener("load", solve);
-
 function solve() {
 
     let inputs = {
@@ -33,10 +32,10 @@ function solve() {
         article.innerHTML += `<p>Location: ${inputs.location.value}</p>`;
         article.innerHTML += `<p>Creator: ${inputs.author.value}</p>`;
         article.innerHTML += `<p>Attribute: ${inputs.attribute.value}</p>`;
-        
+
         let div = document.createElement('div');
         div.classList = 'btns';
-        
+
         let edit = document.createElement('button');
         let next = document.createElement('button');
         edit.classList = 'edit-btn';
@@ -48,7 +47,7 @@ function solve() {
         li.appendChild(article);
         li.appendChild(div);
         preview.appendChild(li);
-        
+
         let result = {};
 
         for (let key in inputs) {
@@ -91,8 +90,8 @@ function solve() {
                 document.body.appendChild(back);
                 document.getElementById('back-img').removeAttribute('hidden');
 
-                back.addEventListener('click', function () { 
-                    window.location.reload(); 
+                back.addEventListener('click', function () {
+                    window.location.reload();
                 });
             }
         }

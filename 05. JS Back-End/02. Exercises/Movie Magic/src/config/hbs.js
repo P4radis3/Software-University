@@ -5,8 +5,8 @@ function configHbs(app) {
         extname: '.hbs'
     });
 
-    app.engine('hbs', hbs.engine);
-    app.set('view engine', 'hbs');
+    app.engine('.hbs', hbs.engine);
+    app.set('view engine', '.hbs');
 }
 
 module.exports = { configHbs };
