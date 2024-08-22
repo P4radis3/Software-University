@@ -1,21 +1,21 @@
 <section class="hero">
-    <h2>Welcome to Home Cooking Recipes</h2>
-    <p>Your go-to place for delicious and easy-to-make recipes.</p>
-    <a href="/recipes/catalog" class="btn">Explore Recipes</a>
+    <h2>Your One-Stop Shop for Laptops and Computers</h2>
+    <p>Find the best deals on the latest laptops, desktops, and accessories.</p>
+    <a href="/devices/catalog" class="btn">Shop Now</a>
 </section>
-<section class="featured-recipes">
-    <h2>Featured Recipes</h2>
-    <div class="recipes">
+<section class="products">
+    <h2>Featured Products</h2>
+    <div class="product-grid">
 
-        {{#each recipes}}
-        <article class="recipe">
-            <img src="{{image}}" alt="{{title}}">
-            <h3>{{title}}</h3>
-            <p>{{description}}</p>
-            <a href="/recipes/{{_id}}/details" class="btn">View Recipe</a>
+        {{#each devices}}
+        <article class="product-item">
+            <img src="{{image}}" alt="{{brand}} {{model}}">
+            <h3>{{brand}} {{model}}</h3>
+            <p>Price: ${{price}}</p>
+            <a href="/devices/{{_id}}/details" class="btn">Read More</a>
         </article>
         {{else}}
-        <p class="no-post">There are no recipes found yet!</p>
+        <p class="no-post">There haven't been any devices posted yet.</p>
         {{/each}}
     </div>
 </section>

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
+    <title>Tech Store</title>
     <link rel="stylesheet" href="/styles/styles.css">
 </head>
 
@@ -17,30 +17,33 @@
 </div>
 {{/if}}
 
-
-<nav>
-    <ul>
-          <li><a href='/'>Home</a></li>
-          <li><a href='/recipes/catalog'>Recipes</a></li>
-          <li><a href='/search'>Search</a></li>
-          {{#if isAuthenticated}}
-            <li><a href='/recipes/create'>Add Recipe</a></li>
+<header>
+    <div class="container">
+        <h1>TechStore</h1>
+        <nav>
+            <ul>
+            <li><a href='/'>Home</a></li>
+            <li><a href='/devices/catalog'>Catalog</a></li>
+            <li><a href='/about'>About</a></li>
+            {{#if isAuthenticated}}
+            <li><a href='/profile'>Profile</a></li>
+            <li><a href='/devices/create'>Create Offer</a></li>
             <li><a href='/auth/logout'>Logout</a></li>
-          {{else}}
+            {{else}}
             <li><a href='/auth/login'>Login</a></li>
             <li><a href='/auth/register'>Register</a></li>
-          {{/if}}
-
-
-
-
-    </ul>
-</nav>
+            {{/if}}
+            </ul>
+        </nav>
+    </div>
+</header>
 
 <body>
     {{{body}}}
     <footer>
-        <p>&copy; 2024 Home Cooking Recipes. All rights reserved.</p>
+        <div class="container">
+            <p>&copy; 2024 TechStore. All rights reserved.</p>
+        </div>
     </footer>
 </body>
 

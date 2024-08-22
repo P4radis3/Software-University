@@ -1,19 +1,32 @@
-<section class='form-container'>
-  <h2>Register</h2>
-  <form method='POST'>
-    <label for='name'>Name:</label>
-    <input type='text' id='name' name='username' value='{{username}}' />
+<section class="register-hero">
+  <div class="container">
+    <h2>Create Your Account</h2>
+    <p>Join us to get the best deals on laptops, desktops, and accessories.</p>
+  </div>
+</section>
 
-    <label for='email'>Email:</label>
-    <input type='email' id='email' name='email' value='{{email}}' />
 
-    <label for='password'>Password:</label>
-    <input type='password' id='password' name='password' />
-
-    <label for='password'>Repeat Password:</label>
-    <input type='password' id='re-password' name='rePassword' />
-
-    <button type='submit'>Register</button>
-  </form>
-  <p>Already have an account? <a href='/auth/login'>Login here</a>.</p>
+<section class="register-form">
+  <div class="container">
+    <form method="POST">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name='username' value='{{username}}'>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name='email' value='{{email}}'>
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name='password'>
+      </div>
+      <div class="form-group">
+        <label for="confirm-password">Confirm Password:</label>
+        <input type="password" id="confirm-password" name="rePassword">
+      </div>
+      <button type="submit" class="btn">Register</button>
+      <p>Already have an account? <a href="/auth/login">Login</a></p>
+    </form>
+  </div>
 </section>

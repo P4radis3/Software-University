@@ -2,13 +2,12 @@ const router = require('express').Router();
 
 const homeController = require('./controller/homeController');
 const authController = require('./controller/authController');
-const recipeController = require('./controller/recipeController');
+const deviceController = require('./controller/deviceController');
 
 router.use('/', homeController);
 router.use('/auth', authController);
-router.use('/recipes', recipeController);
-router.use('*', (req, res) => {
-    res.render('404');
-})
+router.use('/devices', deviceController);
+router.use('*', (req, res) => { res.render('404'); })
+
 
 module.exports = router;

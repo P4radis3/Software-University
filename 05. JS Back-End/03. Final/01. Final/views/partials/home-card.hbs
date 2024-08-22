@@ -1,6 +1,13 @@
-<div class="recipes">
-    <img src="{{image}}" alt="{{title}}">
-    <p>{{title}}</p>
-    <p>{{description}}</p>
-    <a class="details-btn" href="/recipe/{{_id}}/details">Read More</a>
+<div class="products">
+    <h2>Featured Products</h2>
+    <div class="product-grid">
+        {{#each products}}
+        <div class="product-item">
+            <img src="{{this.image}}" alt="{{this.title}}">
+            <h3>{{this.title}}</h3>
+            <p class="price">Price: {{this.price}}</p>
+            <a class="btn details-btn" href="/product/{{this._id}}/details">Read More</a>
+        </div>
+        {{/each}}
+    </div>
 </div>

@@ -1,20 +1,12 @@
 const router = require('express').Router();
-const recipeService = require('../services/recipeService');
-const { getErrorMessage } = require('../utils/errorUtil');
+const deviceService = require('../services/deviceService');
 
 router.get('/', async (req, res) => {
-    const recipes = await recipeService.getLatest().lean();
-    res.render('home', { recipes });
+    const devices = await deviceService.getLatest().lean();
+    res.render('home', { devices });
 });
 
-router.get('/search', async (req, res) => {
-    try {
-        const name = req.query.search;
-        const recipeFound = await recipeService.search(name).lean();
-        res.render('search', { recipeFound });
-    } catch (err) {
-        res.render('search', { error: getErrorMessage(err) });
-    }
-});
+router.get('/about', async (req, res) => { res.render('about'); });
+router.get('/profile', async (req, res) => { res.render('profile'); });
 
 module.exports = router;

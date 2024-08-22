@@ -20,33 +20,21 @@ const userSchema = new mongoose.Schema({
         required: true,
         minLength: [4, 'Your password must be at least 4 characters long.'],
     },
-    createdRecipe: [
+    createdDevice: [
         {
             type: mongoose.Types.ObjectId,
-            ref: 'Recipe',
+            ref: 'Device',
         },
     ],
-    recommendRecipe: [
+    recommendDevice: [
         {
             type: mongoose.Types.ObjectId,
-            ref: 'Recipe',
+            ref: 'Device',
         },
     ],
 });
 
-userSchema.pre('save', function (next) {
-    return bcrypt.hash(this.password, SALT_ROUNDS)
-        .then((hash) => {
-            this.password = hash;
-
-            return next();
-        });
-});
-
-userSchema.method('validatePassword', function (password) {
-    return bcrypt.compare(password, this.password);
-});
-
+userSchema.pre('save', function (next) { return bcrypt.hash(this.password, SALT_ROUNDS).then((hash) => { this.password = hash; return next(); }); });
+userSchema.method('validatePassword', function (password) { return bcrypt.compare(password, this.password); });
 const User = mongoose.model('User', userSchema);
-
 module.exports = User;

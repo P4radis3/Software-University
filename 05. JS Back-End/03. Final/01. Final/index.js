@@ -21,7 +21,8 @@ async function start() {
     hbs(app);
 
     app.use(routes);
-    app.listen(PORT, () => console.log(`App is listening on http://localhost:${PORT}`));
+    app.listen(PORT, () => console.log(`Server is running on http://localhost:${PORT}`));
+
 }
 
 start();
