@@ -1,0 +1,26 @@
+h1 {
+    color: lightslategray
+}
+
+p {
+    font-size: 13px;
+}
+
+
+#main-title {
+    color: blue;
+}
+
+#special-paragraph {
+    font-style: italic;
+}
+
+
+.highlighted {
+    background-color: yellow;
+}
+
+.list {
+    color: red;
+    list-style-type: georgian;
+}

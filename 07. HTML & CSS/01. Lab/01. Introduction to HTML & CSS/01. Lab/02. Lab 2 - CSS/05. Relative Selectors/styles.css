@@ -1,0 +1,24 @@
+section p {
+    color: blue;
+    font-weight: bold;
+}
+
+ul.special-list > li {
+    color: green;
+    font-style: italic;
+}
+
+article + article {
+    background:  red;
+    padding: 10px;
+}
+
+h2.highlight ~ p {
+    background-color: yellow;
+    padding: 5px;
+}
+
+ul > li.special-item + li > a {
+    color: purple;
+    text-decoration: underline;
+}

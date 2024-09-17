@@ -1,0 +1,21 @@
+#highlited {
+    color: #00a1a1;
+    font-weight: bold;
+}
+
+#special {
+    background-color: orange;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+} 
+
+li#first {
+    color: aquamarine
+}
+
+li#third {
+    color: red;
+}
+
+.multiple#paragraph {
+    color: rgb(14, 88, 18);
+}
