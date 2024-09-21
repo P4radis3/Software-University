@@ -1,0 +1,26 @@
+div {
+    border: 2px solid black;
+    padding: 1em 2em;
+    margin-bottom: 2em;
+}
+
+h2 {
+
+    border: 1px solid #ccc;
+    padding: 1em;
+
+}
+
+#block {
+
+    display: block;
+
+}
+
+.inline section {
+    display: inline;
+}
+
+.inline-block section {
+    display: inline-block;
+}
