@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IX. Property - Flex Shrink</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div>
+        <h2>align-content: flex-start;</h2>
+        <div class="container" id="flex-start">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+        </div>
+
+        <h2>align-content: flex-start; (flex-shrink: 0 on all items)</h2>
+        <div class="container" id="flex-shrink-zero">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+        </div>
+
+        <h2>align-content: flex-start; (flex-shrink: 1 on the 2nd item)</h2>
+        <div class="container" id="flex-shrink-2nd-item">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+        </div>
+    </div>
+</body>
+</html>

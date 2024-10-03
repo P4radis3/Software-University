@@ -1,0 +1,37 @@
+.container {
+    width: 400px;
+    padding: 1em;
+    border: 2px solid blue;
+    display: flex;
+    align-items: flex-start;
+}
+
+.item {
+    background-color: #eee;
+    padding: 20px;
+    border: 2px solid #000;
+}
+
+#item1 {
+    order: 5;
+}
+
+#item2 {
+    order: 3;
+}
+
+#item3 {
+    order: 1;
+}
+
+#item4 {
+    order: 6;
+}
+
+#item5 {
+    order: 2;
+}
+
+#item6 {
+    order: 4;
+}
